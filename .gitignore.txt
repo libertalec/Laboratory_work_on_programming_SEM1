@@ -1,4 +1,5 @@
-cmd1
+cmd1.txt
+
 
 # Created by https://www.toptal.com/developers/gitignore/api/windows
 # Edit at https://www.toptal.com/developers/gitignore?templates=windows
