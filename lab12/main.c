@@ -1,12 +1,12 @@
 #include <stdio.h>
 #include <stdbool.h>
 
-int main() {
-    char filename[128];
+int main(int argc, char *argv[]) {
+    char *filename;
     bool even = false;
     char ch;
 
-    scanf("%s", filename);
+    filename = argv[1];
     FILE *file = fopen(filename, "r");
 
     while (ch != EOF) {
@@ -20,4 +20,3 @@ int main() {
     fclose(file);
     return 0;
 }
-
