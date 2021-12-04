@@ -3,7 +3,12 @@
 
 int main() {
     printf("Task 1: \n");
-    double mas[4]={56.4,36.5,7.7,44.3};
+    double mas[4];
+    mas[0] = 56.4;
+    mas[1] = 36.5;
+    mas[2] = 7.7;
+    mas[3] = 44.3;
+
     for (int i = 0; i < 4; i++) {
         printf("%f\n", *(mas + i));
     }
