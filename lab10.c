@@ -2,22 +2,31 @@
 #include <math.h>
 #include <stdlib.h>
 
-struct Point {
-    double x, y;
+struct Point
+{
+    float x;
+    float y;
 };
 
-struct Point arr[101];
-double dist[10201];
+float**  getMatrixOfDistances(struct Point* points, int n)
+{
+    float** pointerToMatrix = (float**)malloc(n * sizeof(int*));
+    int lineItr;
+    float dist;
 
-double distance(struct Point x, struct Point y) {
-    return sqrt((x.x - y.x) * (x.x - y.x) + (x.y - y.y) * (x.y - y.y)); //Корень суммы
-    // квадратов разностей иксов и игриков
-}
-
-int sum_of_digits(int x) {
-    if (!x) return 0; //Если наше число = 0, то просто возратим 0
-    return (x % 10) + sum_of_digits(x / 10); //Иначе возвращаем последнюю цифру и вызываем
-    // эту функцию для числа без последней цифры
+    for (int i = 0; i < n; ++i)
+    {
+        lineItr = 0;
+        pointerToMatrix[i] = (float*)malloc((n-1) * sizeof(float*));
+        for (int j = 0; j < n; ++j)
+        {
+            if (i == j) continue;
+            dist = sqrt(pow((points[i].x - points[j].x), 2) + pow((points[i].y - points[j].y), 2));
+            pointerToMatrix[i][lineItr] = dist;
+            lineItr++;
+        }
+    }
+    return pointerToMatrix;
 }
 
 int *kolvo(int num, int *l) {
@@ -38,20 +47,25 @@ int main() {
     printf("%s\n", "==== Task 2 ====\n");
     int n;
     scanf("%d", &n);
-    for (int i = 0; i < n; i++) {
-        scanf("%lf%lf", &arr[i].x, &arr[i].y); //Читаем точку
+    struct Point* points = (struct Points*)malloc(n * sizeof(struct Points*));
+
+
+    for (int i = 0; i < n; ++i) {
+        printf("Enter %d point coordinates:", (i + 1));
+        scanf("%f %f", &points[i].x, &points[i].y);
     }
-    int it = 0;
-    for (int i = 0; i < n; i++) {
-        for (int j = 0; j < n; j++) {
-            if (i == j) continue;
-            dist[it++] = distance(arr[i], arr[j]); //Высчитываем расстояние
+
+    float **matrix = getMatrixOfDistances(points, n);
+    for (int i = 0; i < n; ++i)
+    {
+        for (int j = 0; j < n - 1; ++j)
+        {
+            printf("%5.2f", matrix[i][j]);
         }
+        printf("\n");
     }
-    for (int i = 0; i < n * (n - 1); i++) {
-        printf("%lf ", dist[i]);
-    }
-    printf("\n\n");
+    printf("\n \n");
+
 
     printf("%s\n", "==== Task 3 ====\n");
     int val;
