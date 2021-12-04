@@ -28,6 +28,7 @@ struct rectangle // Прямоугольник
 {
     struct coordinates A;
     struct coordinates B;
+    struct coordinates C;
 };
 
 union Printer {
@@ -53,6 +54,11 @@ int main() {
 
     Rectangle.B.x = 0;
     Rectangle.B.y = 2;
+
+    Rectangle.C.x = 2;
+    Rectangle.C.y = 2;
+
+
 
 
     double AB = sqrt(pow(Rectangle.A.x - Rectangle.B.x, 2) + pow(Rectangle.A.y - Rectangle.B.y, 2));
