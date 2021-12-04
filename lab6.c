@@ -4,7 +4,7 @@
 int main() {
     printf("Task 1: \n");
     double mas[4];
-    int* mas1 = mas;
+    double* mas1 = mas;
     mas1[0] = 56.4;
     mas1[1] = 36.5;
     mas1[2] = 7.7;
