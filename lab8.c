@@ -22,21 +22,20 @@ int main() {
     printf("%s\n", "==== Task 4 ====");
     int n;
     scanf("%d", &n);
-    for(int i=0;i<n;i++){
-        if(str1[i]==str2[i]){
-            printf("The letter with the number i matched\n");
-        }else {
-            printf("The lines don't match\n");
-            break;
-        }
+
+    if (strncmp(str1, str2, n) == 0) {
+        puts("Yes\n");
+    } else {
+        puts("No\n");
     }
+
 
     printf("%s\n", "==== Task 6 ====");
     int d;
     scanf("%d", &d);
     char *temp1 = (char *) malloc(sizeof(char) * d);
     strncpy(temp1, str2, d);
-    str1=temp1;
+    str1 = temp1;
     printf("%s\n", str1);
 
     printf("%s\n", "==== Task 8 ====");
